@@ -9,8 +9,10 @@ It uses the AngularJS-Seed with some modifications to allow Spring MVC load the 
 
 I also included the bootstrap library for a better UI.
 
+=============================================
 RUN: 
 
 mvn tomcat:run
 
 Then open the URL: http://localhost:8080/AngularSpringApp
+=============================================
