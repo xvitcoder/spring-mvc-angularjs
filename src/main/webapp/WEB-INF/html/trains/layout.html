@@ -1,0 +1,63 @@
+<div class="alert alert-error" ng-show="error">
+    {{errorMessage}}
+</div>
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="inputEmail">Train Name</label>
+
+        <div class="controls">
+            <input type="text" id="inputEmail" ng-model="train.name" placeholder="Train Name" required min="2">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputEmail">Speed</label>
+
+        <div class="controls">
+
+            <input class="span3" type="text" id="inputSpeed" ng-model="train.speed" placeholder="Speed" required min="1">
+            <span class="add-on">km/h</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox">
+                <input type="checkbox" ng-model="train.diesel"> Is Diesel
+            </label>
+        </div>
+        <hr />
+        <div class="controls">
+            <button type="button" class="btn btn-primary" ng-disabled="!train.name || !train.speed" ng-hide="editMode" ng-click="addNewTrain(train)">Add Train</button>
+            <button type="button" class="btn btn-primary" ng-disabled="!train.name || !train.speed" ng-show="editMode" ng-click="updateTrain(train)">Save Train</button>
+            <button type="button" class="btn" ng-click="resetTrainForm()">Reset</button>
+        </div>
+    </div>
+</form>
+<hr />
+<h3>Trains List</h3>
+<div class="alert alert-info" ng-show="trains.length == 0">
+    No trains found
+</div>
+<table class="table table-bordered table-striped" ng-show="trains.length > 0">
+    <thead>
+        <tr>
+            <th style="text-align: center; width: 25px;">Id</th>
+            <th style="text-align: center;">Name</th>
+            <th style="text-align: center;">Speed</th>
+            <th style="text-align: center;">Diesel</th>
+            <th style="text-align: center;">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="train in trains | orderBy:predicate">
+            <td style="text-align: center;">{{train.id}}</td>
+            <td>{{train.name}}</td>
+            <td>{{train.speed}}</td>
+            <td style="text-align: center;width: 20px;"><span ng-show="train.diesel" class="icon-ok"></span></td>
+            <td style="width:100px;text-align: center;">
+                <button class="btn btn-mini btn-danger" ng-click="removeTrain(train.id)">Remove</button>
+                <button class="btn btn-mini btn-success" ng-click="editTrain(train)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-danger" ng-show="trains.length > 1" ng-click="removeAllTrains()">Remove All Cars</button>
