@@ -1,0 +1,86 @@
+<div class="alert alert-error" ng-show="error">{{errorMessage}}</div>
+<form class="form-horizontal">
+
+	<div class="control-group">
+		<label class="control-label" for="rs_name">Railway Station Name</label>
+
+		<div class="controls">
+			<input type="text" id="rs_name" ng-model="rs.name"
+				placeholder="Railway Name" required min="2">
+		</div>
+	</div>
+
+
+	<div class="control-group">
+		<label class="control-label" for="train_name">Train Name</label>
+
+		<div class="controls">
+			<input type="text" id="train_name" ng-model="rs.train.name"
+				placeholder="Train Name" required min="2">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="train_speed">Speed</label>
+
+		<div class="controls">
+
+
+			<input class="span3" type="text" id="train_speed"
+				ng-model="rs.train.speed" placeholder="Speed" required min="1">
+			<span class="add-on">km/h</span>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<label class="checkbox"> <input type="checkbox"
+				ng-model="rs.train.diesel"> Is Diesel
+			</label>
+		</div>
+		<hr />
+		<div class="controls">
+			<button type="button" class="btn btn-primary"
+				ng-disabled="!rs.name || !rs.train.speed" ng-hide="editMode"
+				ng-click="addNewRailwayStation(rs)">Add Railway Station</button>
+				
+			<button type="button" class="btn btn-primary"
+				ng-disabled="!rs.train.name || !rs.train.speed" ng-show="editMode"
+				ng-click="updateRailwayStation(rs)">Save Railway Station</button>
+			<button type="button" class="btn" ng-click="resetRailwayStationForm()">Reset</button>
+		</div>
+	</div>
+</form>
+<hr />
+<h3>Railway Stations List</h3>
+<div class="alert alert-info" ng-show="railwaystations.length == 0">No Railway Stations found</div>
+<table class="table table-bordered table-striped" ng-show="railwaystations.length > 0">
+	<thead>
+		<tr>
+			<th style="text-align: center; width: 25px;">Id</th>
+ 			<th style="text-align: center;">Name</th>
+<!--
+			<th style="text-align: center;">Speed</th>
+			<th style="text-align: center;">Diesel</th>
+ -->
+ 			<th style="text-align: center;">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in railwaystations | orderBy:predicate">
+			<td style="text-align: center;">{{item.id}}</td>
+			<td>{{item.name}}</td>
+			
+			
+			<!-- <td>{{train.speed}}</td>
+			<td style="text-align: center; width: 20px;"><span
+				ng-show="train.diesel" class="icon-ok"></span></td> -->
+				
+			<td style="width: 100px; text-align: center;">
+				<button class="btn btn-mini btn-danger"
+					ng-click="removeRailwayStation(item.id)">Remove</button>
+				<button class="btn btn-mini btn-success" ng-click="editRailwayStation(item)">Edit</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<button class="btn btn-danger" ng-show="railwaystations.length > 1"
+	ng-click="removeAllRailwayStations()">Remove All stations</button>
