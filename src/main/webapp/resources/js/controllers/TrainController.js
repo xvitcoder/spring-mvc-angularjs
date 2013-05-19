@@ -86,5 +86,5 @@ var TrainController = function($scope, $http) {
 
     $scope.fetchTrainsList();
 
-    $scope.predicate = 'id'
+    $scope.predicate = 'id';
 }
