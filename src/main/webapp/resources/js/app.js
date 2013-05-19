@@ -15,6 +15,11 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'trains/layout',
         controller: TrainController
     });
+    
+    $routeProvider.when('/railwaystations', {
+        templateUrl: 'railwaystations/layout',
+        controller: RailwayStationController
+    });
 
     $routeProvider.otherwise({redirectTo: '/cars'});
 }]);
