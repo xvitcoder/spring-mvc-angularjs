@@ -12,7 +12,7 @@ var RailwayStationController = function($scope, $http) {
         $http.get('railwaystations/railwaystationlist.json').success(function(rsList){
             $scope.railwaystations = rsList;
         });
-    }
+    };
 
     $scope.addNewRailwayStation = function(rs) {
 
@@ -27,7 +27,7 @@ var RailwayStationController = function($scope, $http) {
         }).error(function() {
             $scope.setError('Could not add a new station');
         });
-    }
+    };
 
     $scope.updateRailwayStation = function(rs) {
         $scope.resetError();
@@ -42,13 +42,13 @@ var RailwayStationController = function($scope, $http) {
         }).error(function() {
             $scope.setError('Could not update the train');
         });
-    }
+    };
 
     $scope.editRailwayStation = function(rs) {
         $scope.resetError();
         $scope.rs = rs;
         $scope.editMode = true;
-    }
+    };
 
     $scope.removeRailwayStation = function(id) {
         $scope.resetError();
@@ -58,7 +58,9 @@ var RailwayStationController = function($scope, $http) {
         }).error(function() {
             $scope.setError('Could not remove train');
         });
-    }
+        
+        $scope.rs = '';
+    };
 
     $scope.removeAllRailwayStations = function() {
         $scope.resetError();
@@ -75,19 +77,19 @@ var RailwayStationController = function($scope, $http) {
         $scope.resetError();
         $scope.rs = {};
         $scope.editMode = false;
-    }
+    };
 
     $scope.resetError = function() {
         $scope.error = false;
         $scope.errorMessage = '';
-    }
+    };
 
     $scope.setError = function(message) {
         $scope.error = true;
         $scope.errorMessage = message;
-    }
+    };
 
     $scope.fetchRailwayStationsList();
 
     $scope.predicate = 'id';
-}
+};

@@ -12,7 +12,7 @@ var TrainController = function($scope, $http) {
         $http.get('trains/trainslist.json').success(function(trainList){
             $scope.trains = trainList;
         });
-    }
+    };
 
     $scope.addNewTrain = function(train) {
         $scope.resetError();
@@ -25,7 +25,7 @@ var TrainController = function($scope, $http) {
         }).error(function() {
             $scope.setError('Could not add a new train');
         });
-    }
+    };
 
     $scope.updateTrain = function(train) {
         $scope.resetError();
@@ -39,13 +39,13 @@ var TrainController = function($scope, $http) {
         }).error(function() {
             $scope.setError('Could not update the train');
         });
-    }
+    };
 
     $scope.editTrain = function(train) {
         $scope.resetError();
         $scope.train = train;
         $scope.editMode = true;
-    }
+    };
 
     $scope.removeTrain = function(id) {
         $scope.resetError();
@@ -55,7 +55,9 @@ var TrainController = function($scope, $http) {
         }).error(function() {
             $scope.setError('Could not remove train');
         });
-    }
+        $scope.train.name = '';
+        $scope.train.speed = '';
+    };
 
     $scope.removeAllTrains = function() {
         $scope.resetError();
@@ -72,19 +74,19 @@ var TrainController = function($scope, $http) {
         $scope.resetError();
         $scope.train = {};
         $scope.editMode = false;
-    }
+    };
 
     $scope.resetError = function() {
         $scope.error = false;
         $scope.errorMessage = '';
-    }
+    };
 
     $scope.setError = function(message) {
         $scope.error = true;
         $scope.errorMessage = message;
-    }
+    };
 
     $scope.fetchTrainsList();
 
     $scope.predicate = 'id';
-}
+};
