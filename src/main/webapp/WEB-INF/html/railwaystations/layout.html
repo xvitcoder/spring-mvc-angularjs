@@ -57,10 +57,8 @@
 		<tr>
 			<th style="text-align: center; width: 25px;">Id</th>
  			<th style="text-align: center;">Name</th>
-<!--
 			<th style="text-align: center;">Speed</th>
 			<th style="text-align: center;">Diesel</th>
- -->
  			<th style="text-align: center;">Action</th>
 		</tr>
 	</thead>
@@ -68,11 +66,9 @@
 		<tr ng-repeat="item in railwaystations | orderBy:predicate">
 			<td style="text-align: center;">{{item.id}}</td>
 			<td>{{item.name}}</td>
-			
-			
-			<!-- <td>{{train.speed}}</td>
+			<td>{{item.train.speed}}</td>
 			<td style="text-align: center; width: 20px;"><span
-				ng-show="train.diesel" class="icon-ok"></span></td> -->
+				ng-show="item.train.diesel" class="icon-ok"></span></td>
 				
 			<td style="width: 100px; text-align: center;">
 				<button class="btn btn-mini btn-danger"
