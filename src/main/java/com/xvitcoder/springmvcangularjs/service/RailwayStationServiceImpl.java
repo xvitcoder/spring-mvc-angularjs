@@ -1,11 +1,11 @@
-package com.xvitcoder.angualrspringapp.service;
+package com.xvitcoder.springmvcangularjs.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.xvitcoder.angualrspringapp.beans.RailwayStation;
+import com.xvitcoder.springmvcangularjs.beans.RailwayStation;
 
 
 @Service("RailwayStationService")

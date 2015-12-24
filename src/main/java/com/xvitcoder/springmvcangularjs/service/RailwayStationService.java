@@ -1,6 +1,6 @@
-package com.xvitcoder.angualrspringapp.service;
+package com.xvitcoder.springmvcangularjs.service;
 
-import com.xvitcoder.angualrspringapp.beans.RailwayStation;
+import com.xvitcoder.springmvcangularjs.beans.RailwayStation;
 
 import java.util.List;
 

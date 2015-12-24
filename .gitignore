@@ -1,2 +1,5 @@
-target/
+target
 src/main/resources/rebel.xml
+.idea
+spring-mvc-angularjs.iml
+*/**/.DS_Store

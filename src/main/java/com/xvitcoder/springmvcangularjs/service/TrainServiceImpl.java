@@ -1,6 +1,6 @@
-package com.xvitcoder.angualrspringapp.service;
+package com.xvitcoder.springmvcangularjs.service;
 
-import com.xvitcoder.angualrspringapp.beans.Train;
+import com.xvitcoder.springmvcangularjs.beans.Train;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

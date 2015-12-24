@@ -1,4 +1,4 @@
-package com.xvitcoder.angualrspringapp.service;
+package com.xvitcoder.springmvcangularjs.service;
 
 import java.util.List;
 

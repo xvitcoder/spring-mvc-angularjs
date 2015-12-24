@@ -6,7 +6,7 @@
         <label class="control-label" for="inputEmail">Train Name</label>
 
         <div class="controls">
-            <input type="text" id="inputEmail" ng-model="train.name" placeholder="Train Name" required min="2">
+            <input type="text" id="inputEmail" ng-model="train.name" placeholder="Train Name" required="required" min="2" />
         </div>
     </div>
     <div class="control-group">
@@ -15,14 +15,14 @@
         <div class="controls">
 
 
-            <input class="span3" type="text" id="inputSpeed" ng-model="train.speed" placeholder="Speed" required min="1">
+            <input class="span3" type="text" id="inputSpeed" ng-model="train.speed" placeholder="Speed" required="required" min="1" />
             <span class="add-on">km/h</span>
         </div>
     </div>
     <div class="control-group">
         <div class="controls">
             <label class="checkbox">
-                <input type="checkbox" ng-model="train.diesel"> Is Diesel
+                <input type="checkbox" ng-model="train.diesel" /> Is Diesel
             </label>
         </div>
         <hr />
